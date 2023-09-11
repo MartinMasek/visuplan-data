@@ -18,15 +18,9 @@ export interface CustomPropertyDefinition {
   /**
    * Settings specific to the property type, or null if none. E.g. list of options for the SingleSelect.
    */
-  setting: null | ListDefinitionSetting;
+  setting: null | ListOption[];
 }
 
-/**
- * Defines settings for custom properties with list options.
- */
-export interface ListDefinitionSetting {
-  options: ListOption[];
-}
 export interface ListOption {
   id: string;
   displayName: string;
@@ -60,7 +54,7 @@ export interface CustomPropertyWithValue extends CustomPropertyDefinition {
  */
 export interface CustomPropertyDefinitionTyped<
   TType extends CustomPropertyType,
-  TSetting extends null | ListOption
+  TSetting extends null | ListOption[]
 > extends Omit<CustomPropertyDefinition, "propertyType" | "setting"> {
   propertyType: TType;
   /**
@@ -74,7 +68,7 @@ export interface CustomPropertyDefinitionTyped<
  */
 export interface CustomPropertyWithValueTyped<
   TType extends CustomPropertyType,
-  TSetting extends null | ListOption,
+  TSetting extends null | ListOption[],
   TValue extends string[] | string | number
 > extends Omit<CustomPropertyDefinitionTyped<TType, TSetting>, "value"> {
   propertyDefinitionId: string;
@@ -107,7 +101,7 @@ export interface NumberCustomProperty
 export interface SingleSelectCustomProperty
   extends CustomPropertyWithValueTyped<
     CustomPropertyType.SingleSelect,
-    ListOption,
+    ListOption[],
     string
   > {}
 
@@ -117,9 +111,15 @@ export interface SingleSelectCustomProperty
 export interface MultiSelectCustomProperty
   extends CustomPropertyWithValueTyped<
     CustomPropertyType.SingleSelect,
-    ListOption,
+    ListOption[],
     string[]
   > {}
+
+export type CustomPropertyVariant =
+  | StringCustomProperty
+  | NumberCustomProperty
+  | SingleSelectCustomProperty
+  | MultiSelectCustomProperty;
 
 // Parser for custom properties
 // It receives the non-typed version and automatically
