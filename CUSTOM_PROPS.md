@@ -10,6 +10,8 @@ As a result, we require a flexible system that enables the addition of custom pr
 
 ## How Do Custom Properties Work
 
+Note that this section describes the high level idea behind. The specific technical implementation is in [CustomProperties.ts](./types/CustomProperties.ts)
+
 Custom properties allow each tenant to tailor the application to their specific requirements. To understand how custom properties function, let's break it down:
 
 ### Tenant Mapping
@@ -18,7 +20,7 @@ Each tenant has products, and these products can be customized with custom prope
 
 ![Tenant Mapping](./images/custom-props-tenant.png)
 
-This high-level definition provides a generic term for a product. Individual product instances will have specific values for custom properties. 
+This high-level definition provides a generic term for a product. Individual product instances will have specific values for custom properties.
 
 ### Product Mapping
 
