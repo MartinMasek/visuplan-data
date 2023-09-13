@@ -37,7 +37,7 @@ export interface CustomPropertyWithValue extends CustomPropertyDefinition {
   /**
    * Value of the property. The format is specific to the property type.
    */
-  value: string | ListOption;
+  value: string | string[];
 }
 
 // ===============================================================
