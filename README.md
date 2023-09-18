@@ -15,6 +15,7 @@ Documentation about how the material transformation works is in a
 1. Budeme modelovat na obecne urovni (tzn mame ocel a ta je vstup) ci trackovat konkretni instance (20 kg oceli). Dohodnuto, ze je modelovani delane pomoci definice kolik je treba na jednotku.
 2. Kouknout na konkretni pripad transformace (napr pila).
 3. Dat namisto input/output entit jen id?
+4. Jak modelovat tasky? Dat je primo k transformation formula, co maji obsahovat?
 
 ## Changelog
 
