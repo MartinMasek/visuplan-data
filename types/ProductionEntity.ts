@@ -37,6 +37,10 @@ export enum UnitOfMeasure {
  */
 export interface ProductionEntityDefinition {
   id: string;
+  /**
+   * This could be used to connect this entity with an external system.
+   */
+  externalId?: string;
   code: string;
   name: string;
   unitOfMeasure: UnitOfMeasure;

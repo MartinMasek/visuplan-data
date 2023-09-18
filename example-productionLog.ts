@@ -15,7 +15,7 @@ import {
 const hammer: ProductionEntityInstance = {
   id: "1",
   code: "T111",
-  name: "T-shirt",
+  name: "hammer",
   unitOfMeasure: UnitOfMeasure.Piece,
   quantity: 10,
   inventoryTracking: InventoryTrackingMethod.Batch,
@@ -24,7 +24,8 @@ const hammer: ProductionEntityInstance = {
       {
         // Assume this machine combined existing wood handle and the head
         machineId: "444",
-        timestamp: new Date("2023-05-10"),
+        timestampStart: new Date("2023-05-10"),
+        timestampEnd: new Date("2023-05-10"),
         input: [
           {
             id: "1",
@@ -47,7 +48,8 @@ const hammer: ProductionEntityInstance = {
       {
         // Assume this machine cut the steel bar into the hammer head
         machineId: "222",
-        timestamp: new Date("2023-05-10"),
+        timestampStart: new Date("2023-05-10"),
+        timestampEnd: new Date("2023-05-10"),
         input: [
           {
             id: "4",
@@ -76,7 +78,8 @@ const hammer: ProductionEntityInstance = {
       {
         // Assume this machine created the steel bar
         machineId: "123",
-        timestamp: new Date("2023-05-10"),
+        timestampStart: new Date("2023-05-10"),
+        timestampEnd: new Date("2023-05-10"),
         input: [
           {
             id: "6",

@@ -6,8 +6,18 @@ export interface ProductionLog {
 }
 
 export interface ProductionLogRecord {
-  timestamp: Date;
+  /**
+   * UTC format of the date when the activity described
+   * by this log started
+   */
+  timestampStart: Date;
+  /**
+   * UTC format of the date when the activity described
+   * by this log ended
+   */
+  timestampEnd: Date;
   machineId: string;
+  // TODO User
   input: ProductionEntityInstance[];
   notes?: string;
 }

@@ -68,7 +68,7 @@ const steelBar1: ProductionEntityInstance = {
 
 // 30kg steel bar with purity 98%
 const steelBar2: ProductionEntityInstance = {
-  id: "1",
+  id: "2",
   code: "S111-2",
   name: "Steel",
   unitOfMeasure: UnitOfMeasure.Kilogram,
