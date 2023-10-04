@@ -1,0 +1,264 @@
+{
+  "stationDefinitionsById": {
+    "Station_1": { "id": "Station_1", "name": "Tool builder" },
+    "Station_2": { "id": "Station_2", "name": "Cutting machine" }
+  },
+  "productionEntityDefinitionsById": {
+    "100": {
+      "id": "100",
+      "code": "T111",
+      "name": "Wooden handle",
+      "unitOfMeasure": "u",
+      "inventoryTracking": "batch"
+    },
+    "200": {
+      "id": "200",
+      "code": "H111",
+      "name": "Hammer head",
+      "unitOfMeasure": "kg",
+      "inventoryTracking": "batch"
+    },
+    "210": {
+      "id": "210",
+      "code": "S02",
+      "name": "Iron rod",
+      "unitOfMeasure": "u",
+      "inventoryTracking": "batch",
+      "customProperties": {
+        "length_cm": {
+          "displayName": "Rod length (cm)",
+          "propertyType": "number",
+          "setting": null
+        }
+      }
+    },
+    "220": {
+      "id": "220",
+      "code": "S01",
+      "name": "Plastic handle",
+      "unitOfMeasure": "u",
+      "inventoryTracking": "batch"
+    },
+    "300": {
+      "id": "300",
+      "code": "H122",
+      "name": "Hammer",
+      "unitOfMeasure": "u",
+      "inventoryTracking": "batch"
+    },
+    "500": {
+      "id": "500",
+      "code": "BAR-1",
+      "name": "Iron bar",
+      "unitOfMeasure": "u",
+      "inventoryTracking": "batch"
+    },
+    "650": {
+      "id": "650",
+      "code": "S2",
+      "name": "Screwdriver",
+      "unitOfMeasure": "u",
+      "inventoryTracking": "batch"
+    }
+  },
+  "productionEntityInstancesById": {
+    "1": {
+      "id": "1",
+      "code": "T111",
+      "name": "Wooden handle",
+      "unitOfMeasure": "u",
+      "inventoryTracking": "batch",
+      "quantity": 1,
+      "definitionId": "100"
+    },
+    "2": {
+      "id": "2",
+      "code": "H111",
+      "name": "Hammer head",
+      "unitOfMeasure": "kg",
+      "inventoryTracking": "batch",
+      "quantity": 0.5,
+      "sourceOutputId": "30",
+      "definitionId": "200"
+    },
+    "3": {
+      "id": "3",
+      "code": "H122",
+      "name": "Hammer",
+      "unitOfMeasure": "u",
+      "inventoryTracking": "batch",
+      "quantity": 1,
+      "definitionId": "300"
+    },
+    "20": {
+      "id": "20",
+      "code": "S01",
+      "name": "Plastic handle",
+      "unitOfMeasure": "u",
+      "inventoryTracking": "batch",
+      "quantity": 1,
+      "definitionId": "220"
+    },
+    "21": {
+      "id": "21",
+      "code": "S02",
+      "name": "Iron rod",
+      "unitOfMeasure": "u",
+      "inventoryTracking": "batch",
+      "definitionId": "210",
+      "quantity": 1,
+      "customProperties": {
+        "length_cm": {
+          "displayName": "Rod length (cm)",
+          "propertyDefinitionId": "1",
+          "propertyType": "number",
+          "value": 15,
+          "setting": null
+        }
+      }
+    },
+    "30": {
+      "id": "30",
+      "code": "H111",
+      "name": "Hammer head",
+      "unitOfMeasure": "u",
+      "inventoryTracking": "batch",
+      "quantity": 1,
+      "targetInputId": "2",
+      "definitionId": "200"
+    },
+    "50": {
+      "id": "50",
+      "code": "BAR-1",
+      "name": "Iron bar",
+      "unitOfMeasure": "u",
+      "inventoryTracking": "batch",
+      "quantity": 1,
+      "definitionId": "500"
+    },
+    "65": {
+      "id": "65",
+      "code": "S2",
+      "name": "Screwdriver",
+      "unitOfMeasure": "u",
+      "inventoryTracking": "batch",
+      "quantity": 1,
+      "definitionId": "650"
+    }
+  },
+  "transformations": [
+    {
+      "id": "1",
+      "name": "Assemble hammer",
+      "inputs": [
+        {
+          "id": "1",
+          "code": "T111",
+          "name": "Wooden handle",
+          "unitOfMeasure": "u",
+          "inventoryTracking": "batch",
+          "quantity": 1,
+          "definitionId": "100"
+        },
+        {
+          "id": "2",
+          "code": "H111",
+          "name": "Hammer head",
+          "unitOfMeasure": "kg",
+          "inventoryTracking": "batch",
+          "quantity": 0.5,
+          "sourceOutputId": "30",
+          "definitionId": "200"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "3",
+          "code": "H122",
+          "name": "Hammer",
+          "unitOfMeasure": "u",
+          "inventoryTracking": "batch",
+          "quantity": 1,
+          "definitionId": "300"
+        }
+      ],
+      "stationId": "Station_1",
+      "cycleTimeInSeconds": 30
+    },
+    {
+      "id": "2",
+      "name": "Assemble screwdriver",
+      "inputs": [
+        {
+          "id": "20",
+          "code": "S01",
+          "name": "Plastic handle",
+          "unitOfMeasure": "u",
+          "inventoryTracking": "batch",
+          "quantity": 1,
+          "definitionId": "220"
+        },
+        {
+          "id": "21",
+          "code": "S02",
+          "name": "Iron rod",
+          "unitOfMeasure": "u",
+          "inventoryTracking": "batch",
+          "definitionId": "210",
+          "quantity": 1,
+          "customProperties": {
+            "length_cm": {
+              "displayName": "Rod length (cm)",
+              "propertyDefinitionId": "1",
+              "propertyType": "number",
+              "value": 15,
+              "setting": null
+            }
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "65",
+          "code": "S2",
+          "name": "Screwdriver",
+          "unitOfMeasure": "u",
+          "inventoryTracking": "batch",
+          "quantity": 1,
+          "definitionId": "650"
+        }
+      ],
+      "stationId": "Station_1",
+      "cycleTimeInSeconds": 30
+    },
+    {
+      "id": "4",
+      "name": "Cut hammer head",
+      "inputs": [
+        {
+          "id": "50",
+          "code": "BAR-1",
+          "name": "Iron bar",
+          "unitOfMeasure": "u",
+          "inventoryTracking": "batch",
+          "quantity": 1,
+          "definitionId": "500"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "30",
+          "code": "H111",
+          "name": "Hammer head",
+          "unitOfMeasure": "u",
+          "inventoryTracking": "batch",
+          "quantity": 1,
+          "targetInputId": "2",
+          "definitionId": "200"
+        }
+      ],
+      "stationId": "Station_2",
+      "cycleTimeInSeconds": 30
+    }
+  ]
+}

@@ -1,4 +1,3 @@
-import { type ProductionEntityInstance } from "./ProductionEntity";
 
 export interface EntityInstanceWithRelationships
   extends Omit<ProductionEntityInstance, "log"> {
@@ -48,11 +47,5 @@ export interface TransformationFormula {
   /**
    * Station used for the transformation
    */
-  stationId: string;
-
-  /**
-   * The time it takes to complete a specific production or manufacturing cycle for this transformation,
-   * including all the necessary steps and processes
-   */
-  cycleTimeInSeconds?: number;
+  station: StationDefinition;
 }

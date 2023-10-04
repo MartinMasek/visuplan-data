@@ -1,37 +1,108 @@
 import { CustomPropertyType } from "./types/CustomProperties";
 import { InventoryTrackingMethod } from "./types/Inventory";
-import { MachineDefinition } from "./types/Machine";
-import { UnitOfMeasure } from "./types/ProductionEntity";
+import {
+  ProductionEntityDefinition,
+  UnitOfMeasure,
+} from "./types/ProductionEntity";
 import { ManufacturingPlan } from "./types/ProductionPlan";
 import { EntityInstanceWithRelationships } from "./types/TransformationFormula";
 
 // ==================================================================
 //
-// Example showing 2 machines.
-// Machine 1 doing transformation of a wooden handle
+// Example showing 2 stations.
+// Station 1 doing transformation of a wooden handle
 // and an iron head to a hammer product.
 // It can also transform a iron rod and plastic handle to
-// create a screw driver.
+// create a screwdriver.
 //
-// Machine 2 cuts iron bars to hammer heads
+// Station 2 cuts iron bars to hammer heads
 //
 // ==================================================================
+
+// ==================================================================
+//
+// Declare the product definitions
+//
+// ==================================================================
+const woodenHandle: ProductionEntityDefinition = {
+  id: "100",
+  code: "T111",
+  name: "Wooden handle",
+  unitOfMeasure: UnitOfMeasure.Unit,
+  inventoryTracking: InventoryTrackingMethod.Batch,
+};
+
+const hammerHead: ProductionEntityDefinition = {
+  id: "200",
+  code: "H111",
+  name: "Hammer head",
+  unitOfMeasure: UnitOfMeasure.Kilogram,
+  inventoryTracking: InventoryTrackingMethod.Batch,
+};
+
+const hammer: ProductionEntityDefinition = {
+  id: "300",
+  code: "H122",
+  name: "Hammer",
+  unitOfMeasure: UnitOfMeasure.Unit,
+  inventoryTracking: InventoryTrackingMethod.Batch,
+};
+
+const plasticHandle: ProductionEntityDefinition = {
+  id: "220",
+  code: "S01",
+  name: "Plastic handle",
+  unitOfMeasure: UnitOfMeasure.Unit,
+  inventoryTracking: InventoryTrackingMethod.Batch,
+};
+
+const ironRod: ProductionEntityDefinition = {
+  id: "210",
+  code: "S02",
+  name: "Iron rod",
+  unitOfMeasure: UnitOfMeasure.Unit,
+  inventoryTracking: InventoryTrackingMethod.Batch,
+  customProperties: {
+    length_cm: {
+      displayName: "Rod length (cm)",
+      propertyType: CustomPropertyType.Number,
+      setting: null,
+    },
+  },
+};
+
+const screwDriver: ProductionEntityDefinition = {
+  id: "650",
+  code: "S2",
+  name: "Screwdriver",
+  unitOfMeasure: UnitOfMeasure.Unit,
+  inventoryTracking: InventoryTrackingMethod.Batch,
+};
+
+const ironBar: ProductionEntityDefinition = {
+  id: "500",
+  code: "BAR-1",
+  name: "Iron bar",
+  unitOfMeasure: UnitOfMeasure.Unit,
+  inventoryTracking: InventoryTrackingMethod.Batch,
+};
 
 // ==================================================================
 //
 // Declare the products for machine definition
 //
 // ==================================================================
-const woodenHandle_m1: EntityInstanceWithRelationships = {
+const woodenHandle_s1: EntityInstanceWithRelationships = {
   id: "1",
   code: "T111",
   name: "Wooden handle",
   unitOfMeasure: UnitOfMeasure.Unit,
   inventoryTracking: InventoryTrackingMethod.Batch,
   quantity: 1,
+  definitionId: "100",
 };
 
-const hammerHead_m1: EntityInstanceWithRelationships = {
+const hammerHead_s1: EntityInstanceWithRelationships = {
   id: "2",
   code: "H111",
   name: "Hammer head",
@@ -39,27 +110,40 @@ const hammerHead_m1: EntityInstanceWithRelationships = {
   inventoryTracking: InventoryTrackingMethod.Batch,
   quantity: 0.5,
   sourceOutputId: "30", // Connecting output of the previous machine
+  definitionId: "200",
 };
 
-const hammer_m1: EntityInstanceWithRelationships = {
+const hammer_s1: EntityInstanceWithRelationships = {
   id: "3",
-  code: "H111",
+  code: "H122",
   name: "Hammer",
   unitOfMeasure: UnitOfMeasure.Unit,
   inventoryTracking: InventoryTrackingMethod.Batch,
   quantity: 1,
+  definitionId: "300",
 };
 
-const plasticHandle_m1: EntityInstanceWithRelationships = {
+const plasticHandle_s1: EntityInstanceWithRelationships = {
   id: "20",
   code: "S01",
   name: "Plastic handle",
   unitOfMeasure: UnitOfMeasure.Unit,
   inventoryTracking: InventoryTrackingMethod.Batch,
   quantity: 1,
+  definitionId: "220",
+};
+
+const ironRod_s1: EntityInstanceWithRelationships = {
+  id: "21",
+  code: "S02",
+  name: "Iron rod",
+  unitOfMeasure: UnitOfMeasure.Unit,
+  inventoryTracking: InventoryTrackingMethod.Batch,
+  definitionId: "210",
+  quantity: 1,
   customProperties: {
     length_cm: {
-      displayName: "Rod length",
+      displayName: "Rod length (cm)",
       propertyDefinitionId: "1",
       propertyType: CustomPropertyType.Number,
       value: 15,
@@ -68,34 +152,27 @@ const plasticHandle_m1: EntityInstanceWithRelationships = {
   },
 };
 
-const ironRod_m1: EntityInstanceWithRelationships = {
-  id: "21",
-  code: "S02",
-  name: "Iron rod",
-  unitOfMeasure: UnitOfMeasure.Unit,
-  inventoryTracking: InventoryTrackingMethod.Batch,
-  quantity: 1,
-};
-
-const screwDriver_m1: EntityInstanceWithRelationships = {
+const screwDriver_s1: EntityInstanceWithRelationships = {
   id: "65",
   code: "S2",
   name: "Screwdriver",
   unitOfMeasure: UnitOfMeasure.Unit,
   inventoryTracking: InventoryTrackingMethod.Batch,
   quantity: 1,
+  definitionId: "650",
 };
 
-const ironBar_m2: EntityInstanceWithRelationships = {
+const ironBar_s2: EntityInstanceWithRelationships = {
   id: "50",
-  code: "T111",
+  code: "BAR-1",
   name: "Iron bar",
   unitOfMeasure: UnitOfMeasure.Unit,
   inventoryTracking: InventoryTrackingMethod.Batch,
   quantity: 1,
+  definitionId: "500",
 };
 
-const hammerHead_m2: EntityInstanceWithRelationships = {
+const hammerHead_s2: EntityInstanceWithRelationships = {
   id: "30",
   code: "H111",
   name: "Hammer head",
@@ -103,42 +180,8 @@ const hammerHead_m2: EntityInstanceWithRelationships = {
   inventoryTracking: InventoryTrackingMethod.Batch,
   quantity: 1,
   targetInputId: "2", // Connecting input of the next machine
+  definitionId: "200",
 };
-
-// ==================================================================
-
-const machineDefinitions: MachineDefinition[] = [
-  {
-    id: "Machine_1",
-    name: "Tool builder",
-    transformations: [
-      {
-        id: "1",
-        name: "Assemble hammer",
-        inputs: [woodenHandle_m1, hammerHead_m1],
-        outputs: [hammer_m1],
-      },
-      {
-        id: "2",
-        name: "Assemble screw driver",
-        inputs: [plasticHandle_m1, ironRod_m1],
-        outputs: [screwDriver_m1],
-      },
-    ],
-  },
-  {
-    id: "Machine_2",
-    name: "Cutting machine",
-    transformations: [
-      {
-        id: "4",
-        name: "Cut hammer head",
-        inputs: [ironBar_m2],
-        outputs: [hammerHead_m2],
-      },
-    ],
-  },
-];
 
 // ==================================================================
 //
@@ -151,13 +194,62 @@ const machineDefinitions: MachineDefinition[] = [
 // ==================================================================
 
 const plan: ManufacturingPlan = {
-  machineDefinitions: machineDefinitions,
-  // Assume product definitions for hammer, hammer head, iron bar, wooden handle
-  productionEntityDefinitionsById: {},
-  productionEntityInstancesById: {
-    woodenHandle_m1: woodenHandle_m1,
-    hammerHead_m1: hammerHead_m1,
-    // ...
-    // Etc.
+  stationDefinitionsById: {
+    Station_1: {
+      id: "Station_1",
+      name: "Tool builder",
+    },
+    Station_2: {
+      id: "Station_2",
+      name: "Cutting machine",
+    },
   },
+  // Assume product definitions for hammer, hammer head, iron bar, wooden handle
+  productionEntityDefinitionsById: {
+    [woodenHandle.id]: woodenHandle,
+    [hammerHead.id]: hammerHead,
+    [hammer.id]: hammer,
+    [plasticHandle.id]: plasticHandle,
+    [ironRod.id]: ironRod,
+    [screwDriver.id]: screwDriver,
+    [ironBar.id]: ironBar,
+  },
+  productionEntityInstancesById: {
+    [woodenHandle_s1.id]: woodenHandle_s1,
+    [hammerHead_s1.id]: hammerHead_s1,
+    [hammer_s1.id]: hammer_s1,
+    [plasticHandle_s1.id]: plasticHandle_s1,
+    [ironRod_s1.id]: ironRod_s1,
+    [screwDriver_s1.id]: screwDriver_s1,
+    [ironBar_s2.id]: ironBar_s2,
+    [hammerHead_s2.id]: hammerHead_s2,
+  },
+  transformations: [
+    {
+      id: "1",
+      name: "Assemble hammer",
+      inputs: [woodenHandle_s1, hammerHead_s1],
+      outputs: [hammer_s1],
+      stationId: "Station_1",
+      cycleTimeInSeconds: 30,
+    },
+    {
+      id: "2",
+      name: "Assemble screwdriver",
+      inputs: [plasticHandle_s1, ironRod_s1],
+      outputs: [screwDriver_s1],
+      stationId: "Station_1",
+      cycleTimeInSeconds: 30,
+    },
+    {
+      id: "4",
+      name: "Cut hammer head",
+      inputs: [ironBar_s2],
+      outputs: [hammerHead_s2],
+      stationId: "Station_2",
+      cycleTimeInSeconds: 30,
+    },
+  ],
 };
+
+console.log(JSON.stringify(plan));

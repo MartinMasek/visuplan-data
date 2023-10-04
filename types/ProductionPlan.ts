@@ -1,8 +1,10 @@
-import { MachineDefinition } from "./Machine";
+import { StationDefinition } from "./Station";
 import { ProductionEntityDefinition } from "./ProductionEntity";
+import { TransformationFormula } from "./TransformationFormula";
 
 export interface ManufacturingPlan {
-  machineDefinitions: MachineDefinition[];
+  stationDefinitionsById: { [id: string]: StationDefinition };
   productionEntityDefinitionsById: { [id: string]: ProductionEntityDefinition };
   productionEntityInstancesById: { [id: string]: ProductionEntityDefinition };
+  transformations: TransformationFormula[];
 }

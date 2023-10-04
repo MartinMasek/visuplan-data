@@ -19,6 +19,7 @@ const hammer: ProductionEntityInstance = {
   unitOfMeasure: UnitOfMeasure.Piece,
   quantity: 10,
   inventoryTracking: InventoryTrackingMethod.Batch,
+  definitionId: "1",
   log: {
     records: [
       {
@@ -34,6 +35,7 @@ const hammer: ProductionEntityInstance = {
             unitOfMeasure: UnitOfMeasure.Unit,
             quantity: 10,
             inventoryTracking: InventoryTrackingMethod.Batch,
+            definitionId: "1",
           },
           {
             id: "2",
@@ -42,6 +44,7 @@ const hammer: ProductionEntityInstance = {
             unitOfMeasure: UnitOfMeasure.Unit,
             quantity: 10,
             inventoryTracking: InventoryTrackingMethod.Batch,
+            definitionId: "2",
           },
         ],
       },
@@ -59,6 +62,7 @@ const hammer: ProductionEntityInstance = {
             quantity: 20,
             inventoryTracking: InventoryTrackingMethod.Batch,
             supplier: { id: "1", name: "Mining company A" },
+            definitionId: "3",
             customProperties: {
               purity: {
                 propertyType: CustomPropertyType.SingleSelect,
@@ -89,6 +93,7 @@ const hammer: ProductionEntityInstance = {
             quantity: 50,
             inventoryTracking: InventoryTrackingMethod.Batch,
             supplier: { id: "1", name: "Mining company A" },
+            definitionId: "4",
           },
         ],
       },

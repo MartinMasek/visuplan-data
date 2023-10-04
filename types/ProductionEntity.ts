@@ -36,11 +36,17 @@ export enum UnitOfMeasure {
  * The specific attributes and usage may vary depending on the tenant and business context.
  */
 export interface ProductionEntityDefinition {
+  /**
+   * Unique id of the entity
+   */
   id: string;
   /**
    * This could be used to connect this entity with an external system.
    */
   externalId?: string;
+  /**
+   * Barcode or QR code of the entity
+   */
   code: string;
   name: string;
   unitOfMeasure: UnitOfMeasure;
@@ -64,5 +70,13 @@ export interface ProductionEntityInstance
     [propertyId: string]: Omit<CustomPropertyVariant, "id">;
   };
   quantity: number;
+  /**
+   * This holds the id of the definition for this instance.
+   * E.g. there is 1 definition for a steel bar which has id 10.
+   * Then, the modeling in the real world uses 2 different steel bars
+   * with ids 20 and 21. Both of them will have 'definitionId'
+   * set to 10 (which is the steel bar definition)
+   */
+  definitionId: string;
   log?: ProductionLog;
 }
