@@ -37,14 +37,14 @@ export interface TransformationFormula {
    * to enable the use of custom property values. Quantity is used to represent how many/much
    * of the entity is needed.
    */
-  inputs: Omit<ProductionEntityInstance, "log">[];
+  inputs: Omit<EntityInstanceWithRelationships, "log">[];
 
   /**
    * An array of output entities produced by the transformation. Specific instances are passed
    * to enable the use of custom property values. Quantity is used to represent how many/much
    * of the entity is needed.
    */
-  outputs: Omit<ProductionEntityInstance, "log">[];
+  outputs: Omit<EntityInstanceWithRelationships, "log">[];
 
   /**
    * Station used for the transformation

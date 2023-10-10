@@ -4,7 +4,7 @@ import {
   ProductionEntityDefinition,
   UnitOfMeasure,
 } from "./types/ProductionEntity";
-import { ManufacturingPlan } from "./types/ProductionPlan";
+import { ManufacturingPlan } from "./types/ManufacturingPlan";
 import { EntityInstanceWithRelationships } from "./types/TransformationFormula";
 
 // ==================================================================

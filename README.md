@@ -10,21 +10,45 @@ Documentation about how custom props work is in a
 Documentation about how the material transformation works is in a
 [separate README](./TRANSFORMATION.md)
 
+### Public APIs
+
+#### QUERY
+
+- GetAllManufacturingPlansMetadata - returns all definitions of manufacturing plans in the system with metadata like name
+- GetManufacturingPlan (id: string) - returns a specific manufacturing plan based on its id
+- GetAllStationDefinitions - returns all station definitions
+- GetAllProductionEntityDefinitions - returns all production entity definitions
+
+#### MUTATE
+
+- ImportStations (stations: Station[]) - clears stations in the system and adds the passed ones 
+- ImportManufacturingPlans (plans: ManufacturingPlan[]) - Replaces all plans by the imported ones
+- ImportProductionEntityDefinitions (definitions: ProductionEntityDefinition[]) - 
+
+### Callback APIs
+- /export-stations - POST api called when stations are exported. All stations are passed
+- /export-production-entity-definitions - POST api called when all production entity definitions are exported.
+- /export-manufacturing-plans - POST api called when all manufacturing plans are exported
+
+??
+/task-completed
+
 ## Questions
 
-1. Budeme modelovat na obecne urovni (tzn mame ocel a ta je vstup) ci trackovat konkretni instance (20 kg oceli). Dohodnuto, ze je modelovani delane pomoci definice kolik je treba na jednotku.
-2. Jak modelovat tasky? Dat je primo k transformation formula, co maji obsahovat?
-3. Definice produktu a pouziti skrz ruzne transformace vs definice ad-hoc (id pro stejnou vec pak budou jine)
-4. Modelujeme proces s variantou custom property ci definici (smysl dava varianta). Priklad, kdy definice rika, ze je ocel s cistotou 95, 98, 99 a varianta ma konkretni hodnotu (napr 98)
-5. Modelovani podminek pro tasky - netreba
+Jak pripojit k ESO? 
+1. Cloud vs on-premise
+2. Pro v1 dohodnout tok dat pro inicializaci - muzeme udelat pro stanoviste, produkty a transformace zvlast ale NE hybrid (konflikt IDs)
+3. Reseni konfliktu pri importu (napr import planu obsahuje entity, ktere nejsou v DB)
+4. Transakce skrz systemy? (Propagace splneneho tasku do ESO) - Pro ted napr fail log
+
+Vyresit jak se bude SW pouzivat (data flow pro import + runtime) napr zobrazeni pruvodky, zaplanovani konkretni vyroby (pocet kusu)
 
 ## Changelog
 
 1. Timestamp changed for production log
 2. Transformation formula
 3. Separate transformations from stations, updated example
-4. Support material substitution, finished tasks
+4. Support material substitution, finished tasks, API "definition"
 
 // TODO Dalsi verze umoznuje modelovani na zaklade inventory
-// TODO dokoncit tasky, zacit se venovat runtime
-// Architecture picture
+// TODO Vyresit runtime a co mame za use cases 

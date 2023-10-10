@@ -1,4 +1,3 @@
-
 export interface EntityInstanceWithRelationships
   extends Omit<ProductionEntityInstance, "log"> {
   /**
