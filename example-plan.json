@@ -30,7 +30,23 @@
           "propertyType": "number",
           "setting": null
         }
-      }
+      },
+      "substitution": [
+        {
+          "id": "215",
+          "code": "S02B",
+          "name": "Iron rod",
+          "unitOfMeasure": "u",
+          "inventoryTracking": "batch",
+          "customProperties": {
+            "length_cm": {
+              "displayName": "Rod length (cm)",
+              "propertyType": "number",
+              "setting": null
+            }
+          }
+        }
+      ]
     },
     "220": {
       "id": "220",
@@ -75,9 +91,9 @@
       "id": "2",
       "code": "H111",
       "name": "Hammer head",
-      "unitOfMeasure": "kg",
+      "unitOfMeasure": "u",
       "inventoryTracking": "batch",
-      "quantity": 0.5,
+      "quantity": 1,
       "sourceOutputId": "30",
       "definitionId": "200"
     },
@@ -131,9 +147,9 @@
       "id": "50",
       "code": "BAR-1",
       "name": "Iron bar",
-      "unitOfMeasure": "u",
+      "unitOfMeasure": "kg",
       "inventoryTracking": "batch",
-      "quantity": 1,
+      "quantity": 0.2,
       "definitionId": "500"
     },
     "65": {
@@ -164,9 +180,9 @@
           "id": "2",
           "code": "H111",
           "name": "Hammer head",
-          "unitOfMeasure": "kg",
+          "unitOfMeasure": "u",
           "inventoryTracking": "batch",
-          "quantity": 0.5,
+          "quantity": 1,
           "sourceOutputId": "30",
           "definitionId": "200"
         }
@@ -239,9 +255,9 @@
           "id": "50",
           "code": "BAR-1",
           "name": "Iron bar",
-          "unitOfMeasure": "u",
+          "unitOfMeasure": "kg",
           "inventoryTracking": "batch",
-          "quantity": 1,
+          "quantity": 0.2,
           "definitionId": "500"
         }
       ],

@@ -55,6 +55,11 @@ export interface ProductionEntityDefinition {
   customProperties?: {
     [propertyId: string]: Omit<CustomPropertyDefinition, "id">;
   };
+  /**
+   * Provides functionality for managing substitution of this production entity
+   * in the manufacturing process.
+   */
+  substitution?: ProductionEntityDefinition[];
 }
 
 /**
@@ -65,11 +70,14 @@ export interface ProductionEntityDefinition {
  * to this instance.
  */
 export interface ProductionEntityInstance
-  extends Omit<ProductionEntityDefinition, "customProperties"> {
+  extends Omit<
+    ProductionEntityDefinition,
+    "customProperties" | "substitution"
+  > {
   customProperties?: {
     [propertyId: string]: Omit<CustomPropertyVariant, "id">;
   };
-  quantity: number;
+  quantity?: number;
   /**
    * This holds the id of the definition for this instance.
    * E.g. there is 1 definition for a steel bar which has id 10.

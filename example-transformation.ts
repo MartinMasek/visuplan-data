@@ -69,6 +69,22 @@ const ironRod: ProductionEntityDefinition = {
       setting: null,
     },
   },
+  substitution: [
+    {
+      id: "215",
+      code: "S02B",
+      name: "Iron rod",
+      unitOfMeasure: UnitOfMeasure.Unit,
+      inventoryTracking: InventoryTrackingMethod.Batch,
+      customProperties: {
+        length_cm: {
+          displayName: "Rod length (cm)",
+          propertyType: CustomPropertyType.Number,
+          setting: null,
+        },
+      },
+    },
+  ],
 };
 
 const screwDriver: ProductionEntityDefinition = {
@@ -106,9 +122,9 @@ const hammerHead_s1: EntityInstanceWithRelationships = {
   id: "2",
   code: "H111",
   name: "Hammer head",
-  unitOfMeasure: UnitOfMeasure.Kilogram,
+  unitOfMeasure: UnitOfMeasure.Unit,
   inventoryTracking: InventoryTrackingMethod.Batch,
-  quantity: 0.5,
+  quantity: 1,
   sourceOutputId: "30", // Connecting output of the previous machine
   definitionId: "200",
 };
@@ -166,9 +182,9 @@ const ironBar_s2: EntityInstanceWithRelationships = {
   id: "50",
   code: "BAR-1",
   name: "Iron bar",
-  unitOfMeasure: UnitOfMeasure.Unit,
+  unitOfMeasure: UnitOfMeasure.Kilogram,
   inventoryTracking: InventoryTrackingMethod.Batch,
-  quantity: 1,
+  quantity: 0.2,
   definitionId: "500",
 };
 
