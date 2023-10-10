@@ -1,4 +1,5 @@
 import { type ProductionEntityInstance } from "./ProductionEntity";
+import { TaskDefinition } from "./Task";
 
 export interface EntityInstanceWithRelationships
   extends Omit<ProductionEntityInstance, "log"> {
@@ -55,4 +56,25 @@ export interface TransformationFormula {
    * including all the necessary steps and processes
    */
   cycleTimeInSeconds?: number;
+
+  /**
+   * Each formula can have notes which are displayed to the users. This could be notes to the operators
+   * of the machines.
+   */
+  notes?: string;
+
+  /**
+   * Set of tasks which need to be completed with each cycle of the machine.
+   */
+  tasksForEachCycle?: TaskDefinition[];
+
+  /**
+   * Set of tasks which need to be completed before the transformation starts.
+   */
+  tasksBeforeStart?: TaskDefinition[];
+
+  /**
+   * Set of tasks which need to be completed after the transformation ends.
+   */
+  tasksAfterEnd?: TaskDefinition[];
 }

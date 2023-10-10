@@ -23,9 +23,8 @@ Documentation about how the material transformation works is in a
 1. Timestamp changed for production log
 2. Transformation formula
 3. Separate transformations from stations, updated example
-4. Support material substitution
+4. Support material substitution, finished tasks
 
-// TODO Tasky a cas co zaberou
 // TODO Dalsi verze umoznuje modelovani na zaklade inventory
-// TODO Pridat tasky
 // TODO dokoncit tasky, zacit se venovat runtime
+// Architecture picture

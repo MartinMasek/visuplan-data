@@ -248,6 +248,12 @@ const plan: ManufacturingPlan = {
       outputs: [hammer_s1],
       stationId: "Station_1",
       cycleTimeInSeconds: 30,
+      notes: "Note 1 -A -B",
+      tasksBeforeStart: [
+        {
+          title: "Task before start",
+        },
+      ],
     },
     {
       id: "2",
@@ -256,6 +262,12 @@ const plan: ManufacturingPlan = {
       outputs: [screwDriver_s1],
       stationId: "Station_1",
       cycleTimeInSeconds: 30,
+      tasksAfterEnd: [
+        {
+          title: "Task after end",
+          estimatedTimeInSeconds: 120,
+        },
+      ],
     },
     {
       id: "4",
@@ -264,6 +276,22 @@ const plan: ManufacturingPlan = {
       outputs: [hammerHead_s2],
       stationId: "Station_2",
       cycleTimeInSeconds: 30,
+      tasksForEachCycle: [
+        {
+          title: "Cycle Task 1",
+          dependentTasks: [
+            {
+              title: "Cycle Task 2",
+            },
+            {
+              title: "Cycle Task 3",
+            },
+          ],
+        },
+        {
+          title: "Cycle Task 4",
+        },
+      ],
     },
   ],
 };
