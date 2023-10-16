@@ -1,4 +1,5 @@
 {
+  "id": "1",
   "stationDefinitionsById": {
     "Station_1": { "id": "Station_1", "name": "Tool builder" },
     "Station_2": { "id": "Station_2", "name": "Cutting machine" }
@@ -201,7 +202,7 @@
       "stationId": "Station_1",
       "cycleTimeInSeconds": 30,
       "notes": "Note 1 -A -B",
-      "tasksBeforeStart": [{ "title": "Task before start" }]
+      "tasksBeforeStart": [{ "id": "1-a", "title": "Task before start" }]
     },
     {
       "id": "2",
@@ -249,7 +250,11 @@
       "stationId": "Station_1",
       "cycleTimeInSeconds": 30,
       "tasksAfterEnd": [
-        { "title": "Task after end", "estimatedTimeInSeconds": 120 }
+        {
+          "id": "2-a",
+          "title": "Task after end",
+          "estimatedTimeInSeconds": 120
+        }
       ]
     },
     {
@@ -283,12 +288,13 @@
       "tasksForEachCycle": [
         {
           "title": "Cycle Task 1",
+          "id": "4-a",
           "dependentTasks": [
-            { "title": "Cycle Task 2" },
-            { "title": "Cycle Task 3" }
+            { "title": "Cycle Task 2", "id": "4-b" },
+            { "id": "4-c", "title": "Cycle Task 3" }
           ]
         },
-        { "title": "Cycle Task 4" }
+        { "title": "Cycle Task 4", "id": "4-d" }
       ]
     }
   ]

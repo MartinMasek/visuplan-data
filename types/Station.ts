@@ -3,11 +3,15 @@
  */
 export interface StationDefinition {
   /**
-   * Id of the machine
+   * Id of the station
    */
   id: string;
   /**
-   * Name of the machine
+   * This could be used to connect this entity with an external system.
+   */
+  externalId?: string;
+  /**
+   * Name of the station
    */
   name: string;
 }

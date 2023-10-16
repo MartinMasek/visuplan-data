@@ -210,6 +210,7 @@ const hammerHead_s2: EntityInstanceWithRelationships = {
 // ==================================================================
 
 const plan: ManufacturingPlan = {
+  id: "1",
   stationDefinitionsById: {
     Station_1: {
       id: "Station_1",
@@ -251,6 +252,7 @@ const plan: ManufacturingPlan = {
       notes: "Note 1 -A -B",
       tasksBeforeStart: [
         {
+          id: "1-a",
           title: "Task before start",
         },
       ],
@@ -264,6 +266,7 @@ const plan: ManufacturingPlan = {
       cycleTimeInSeconds: 30,
       tasksAfterEnd: [
         {
+          id: "2-a",
           title: "Task after end",
           estimatedTimeInSeconds: 120,
         },
@@ -279,17 +282,21 @@ const plan: ManufacturingPlan = {
       tasksForEachCycle: [
         {
           title: "Cycle Task 1",
+          id: "4-a",
           dependentTasks: [
             {
               title: "Cycle Task 2",
+              id: "4-b",
             },
             {
+              id: "4-c",
               title: "Cycle Task 3",
             },
           ],
         },
         {
           title: "Cycle Task 4",
+          id: "4-d",
         },
       ],
     },

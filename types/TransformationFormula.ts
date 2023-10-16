@@ -29,6 +29,10 @@ export interface TransformationFormula {
    */
   id: string;
   /**
+   * This could be used to connect this entity with an external system.
+   */
+  externalId?: string;
+  /**
    * Name the transformation. E.g. "Cut out steel bars"
    */
   name: string;

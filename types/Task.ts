@@ -1,6 +1,14 @@
 import { User } from "./User";
 
 export interface TaskDefinition {
+  /**
+   * Unique id of the task
+   */
+  id: string;
+  /**
+   * This could be used to connect this entity with an external system.
+   */
+  externalId?: string;
   title: string;
   description?: string;
   dependentTasks?: TaskDefinition[];

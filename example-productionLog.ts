@@ -17,7 +17,7 @@ const hammer: ProductionEntityInstance = {
   code: "T111",
   name: "hammer",
   unitOfMeasure: UnitOfMeasure.Piece,
-  quantity: 10,
+  quantity: 1,
   inventoryTracking: InventoryTrackingMethod.Batch,
   definitionId: "1",
   log: {
