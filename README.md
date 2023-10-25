@@ -36,17 +36,23 @@ Documentation about how the material transformation works is in a
 
 ## Questions
 
-Jak pripojit k ESO?
+Jak pripojit k ESO? - Priklad s url + API token
 
 [x] Cloud vs on-premise (cloud by mel byt ok)
 [x]Pro v1 dohodnout tok dat pro inicializaci - muzeme udelat pro stanoviste, produkty a transformace zvlast ale NE hybrid (konflikt IDs) - odsouhlaseno
 [x] Reseni konfliktu pri importu (napr import planu obsahuje entity, ktere nejsou v DB) - Jednoducha zprava a check idcek
 [x] Transakce skrz systemy? (Propagace splneneho tasku do ESO) - Pro ted napr fail log - Pokud ESO odpovida, tak blokujeme UI, pokud neodpovida, tak pokracujeme a logujeme
+[x] Zamena produktu je na planu nebo globalne? Globalne
 [ ] Budeme modelovat jen vstupy pro production run + pripadna re-definice ve vyrobe? + Moznost definovat az ve vyrobe
-[ ] v1 neumozni jeste specifikovat tasky a notes pro konkretni run (jen se to dedi)
-[ ] Jak sofistikovane musi byt planovani kapacity - input + vypocitani casu vs externi casy dodavky a pocitani konkretniho datumu
-[ ] Priority - Modelovani -> Management -> auth (pripadne doplnit o sofistikovane planovani kapacity)
-
+[x] v1 neumozni jeste specifikovat tasky a notes pro konkretni run (jen se to dedi) - moznost deaktivovat task + moznost pridat task do konkretniho runu
+[x] Jak sofistikovane musi byt planovani kapacity (input + vypocitani casu vs externi casy dodavky a pocitani konkretniho datumu) - planovani kapacity je cele nice to have, ale nemusime se focusovat nutne
+[x] Priority - Modelovani -> Management -> auth (pripadne doplnit o sofistikovane planovani kapacity) (kapacita je dobra, kdyz se stihne)
+[ ] Jsou transformace pro stanoviste definovany implicitne tvorbou diagramu a nebo se definuji na stanovisti a pak jen vybiram v diagramu
+[ ] Mazani stanoviste - Cascade delete? Nejspis ne, tzn cim nahradit? (muzeme soft delete pokud k tomu jsou relace) - to same mazani produktu
+[ ] Jsou opravdu tasky + notes pro stanoviste dulezite? Jak pak v aplikaci rozlisovat, kdyz nejake tasky nejsou treba na stanoviste
+[ ] Jak bude prirazena prace - v planu co nejjednodussi pristup - k vytvorenemu runu assignee (mozna nejaka grupa) a jen trackovat kdo task splnil (zadne rozlisovani na typy tasku urcitym lidem apod)
+[ ] Je treba nejaka aktivace planu superviserem?
+[ ] Apka na prirazeni prace bude jen responzivni aplikace, ktera na zaklade role skryje vetsinu UI (management stanici apod) pro delnika
 
 ## Changelog
 
@@ -59,4 +65,5 @@ Jak pripojit k ESO?
 // TODO Dalsi verze umoznuje modelovani na zaklade inventory
 // TODO Vyresit runtime a co mame za use cases
 // TODO auth
-// TODO mazani
+// TODO samostatna screena
+// TODO moznost pridat task az pro konkretni run
