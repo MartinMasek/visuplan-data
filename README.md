@@ -47,9 +47,10 @@ Jak pripojit k ESO? - Priklad s url + API token
 [x] v1 neumozni jeste specifikovat tasky a notes pro konkretni run (jen se to dedi) - moznost deaktivovat task + moznost pridat task do konkretniho runu
 [x] Jak sofistikovane musi byt planovani kapacity (input + vypocitani casu vs externi casy dodavky a pocitani konkretniho datumu) - planovani kapacity je cele nice to have, ale nemusime se focusovat nutne
 [x] Priority - Modelovani -> Management -> auth (pripadne doplnit o sofistikovane planovani kapacity) (kapacita je dobra, kdyz se stihne)
-[ ] Jsou transformace pro stanoviste definovany implicitne tvorbou diagramu a nebo se definuji na stanovisti a pak jen vybiram v diagramu
-[ ] Mazani stanoviste - Cascade delete? Nejspis ne, tzn cim nahradit? (muzeme soft delete pokud k tomu jsou relace) - to same mazani produktu
-[ ] Jsou opravdu tasky + notes pro stanoviste dulezite? Jak pak v aplikaci rozlisovat, kdyz nejake tasky nejsou treba na stanoviste
+[x] Jsou transformace pro stanoviste definovany implicitne tvorbou diagramu a nebo se definuji na stanovisti a pak jen vybiram v diagramu - ad hoc
+[x] Mazani stanoviste - Cascade delete? Nejspis ne, tzn cim nahradit? (muzeme soft delete pokud k tomu jsou relace) - to same mazani produktu - jen soft delete na urovni uzivatele (admin je vzdy vidi) - neaktivni
+[x] Pokud zmenim plan, tak to nezmeni runy
+[x] Jsou opravdu tasky + notes pro stanoviste dulezite? Jak pak v aplikaci rozlisovat, kdyz nejake tasky nejsou treba na stanoviste - ano potrebujeme
 [ ] Jak bude prirazena prace - v planu co nejjednodussi pristup - k vytvorenemu runu assignee (mozna nejaka grupa) a jen trackovat kdo task splnil (zadne rozlisovani na typy tasku urcitym lidem apod)
 [ ] Je treba nejaka aktivace planu superviserem?
 [ ] Apka na prirazeni prace bude jen responzivni aplikace, ktera na zaklade role skryje vetsinu UI (management stanici apod) pro delnika
@@ -67,3 +68,5 @@ Jak pripojit k ESO? - Priklad s url + API token
 // TODO auth
 // TODO samostatna screena
 // TODO moznost pridat task az pro konkretni run
+// TODO zmenit obrazek, ze to bude skrz stanoviste a ne runy na zacatku - moznost barcodu a to rekne co je to za zakazku a vlastne to rovnou nacte + zobrazit zakazky co uz byly a co budou
+// 
